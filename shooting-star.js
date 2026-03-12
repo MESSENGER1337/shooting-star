@@ -558,7 +558,8 @@ function showFinalScreen() {
   if (numPlayers === 1) {
     $('final-p2-name').style.display = 'none';
     $('final-p2-dist').style.display = 'none';
-    $('result-vs').style.display = 'none';
+    const vsEl = document.querySelector('#final-screen .result-vs');
+    if (vsEl) vsEl.style.display = 'none';
   }
 
   showScreen(finalScreen);
