@@ -1,0 +1,117 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Shooting Star</title>
+  <link rel="stylesheet" href="shooting-star.css" />
+</head>
+<body>
+  <!-- SETUP SCREEN -->
+  <div id="setup-screen" class="screen active">
+    <div class="title-wrap">
+      <h1 class="game-title"><span class="cyan">SHOOTING</span> <span class="pink">STAR</span></h1>
+      <p class="subtitle">PRESS YOUR LUCK · INFINITE FLYER</p>
+    </div>
+    <div class="setup-card">
+      <div class="field-label">NUMBER OF PLAYERS</div>
+      <div class="player-count-row">
+        <button class="count-btn" id="dec-players">−</button>
+        <span class="count-display" id="player-count">2</span>
+        <button class="count-btn" id="inc-players">+</button>
+      </div>
+      <div id="name-fields">
+        <div class="name-row">
+          <span class="p-label cyan">P1</span>
+          <input class="name-input" id="name-p1" type="text" placeholder="PLAYER 1" maxlength="12" autocomplete="off" spellcheck="false" />
+        </div>
+        <div class="name-row" id="p2-row">
+          <span class="p-label pink">P2</span>
+          <input class="name-input" id="name-p2" type="text" placeholder="PLAYER 2" maxlength="12" autocomplete="off" spellcheck="false" />
+        </div>
+      </div>
+      <button class="start-btn" id="start-btn">START GAME</button>
+    </div>
+    <div class="how-to-card">
+      <div class="how-title">HOW TO PLAY</div>
+      <p>TAP · CLICK · SPACE · ↑ &nbsp;to flap &nbsp;|&nbsp; Avoid the pillars</p>
+      <p>Each player takes a turn — <span class="cyan">farthest distance wins</span></p>
+      <p>World gets <span class="pink">harder</span> the farther you fly</p>
+    </div>
+  </div>
+
+  <!-- COUNTDOWN SCREEN -->
+  <div id="countdown-screen" class="screen">
+    <div class="player-turn-label" id="turn-label">DAN'S TURN</div>
+    <div class="countdown-number" id="countdown-num">3</div>
+    <div class="countdown-hint">GET READY</div>
+  </div>
+
+  <!-- GAME SCREEN -->
+  <div id="game-screen" class="screen">
+    <div class="hud">
+      <div class="hud-score-box" id="hud-p1">
+        <div class="hud-name" id="hud-p1-name">DAN</div>
+        <div class="hud-val" id="hud-p1-score">0</div>
+      </div>
+      <div class="hud-center">
+        <div class="hud-dist" id="hud-dist">0</div>
+        <div class="hud-dist-label">DISTANCE</div>
+      </div>
+      <div class="hud-score-box hud-right" id="hud-p2">
+        <div class="hud-name" id="hud-p2-name">MAN</div>
+        <div class="hud-val" id="hud-p2-score">—</div>
+      </div>
+    </div>
+    <canvas id="game-canvas"></canvas>
+  </div>
+
+  <!-- RESULT SCREEN (between rounds) -->
+  <div id="result-screen" class="screen">
+    <div class="result-card">
+      <div class="result-title" id="result-title">ROUND OVER</div>
+      <div class="result-score-wrap">
+        <div class="result-player-block" id="res-p1-block">
+          <div class="result-pname cyan" id="res-p1-name">DAN</div>
+          <div class="result-pdist" id="res-p1-dist">—</div>
+        </div>
+        <div class="result-vs">VS</div>
+        <div class="result-player-block" id="res-p2-block">
+          <div class="result-pname pink" id="res-p2-name">MAN</div>
+          <div class="result-pdist" id="res-p2-dist">—</div>
+        </div>
+      </div>
+      <div class="result-next-label" id="result-next-label"></div>
+      <button class="start-btn" id="next-turn-btn">NEXT TURN</button>
+    </div>
+  </div>
+
+  <!-- FINAL SCREEN -->
+  <div id="final-screen" class="screen">
+    <div class="result-card">
+      <div class="result-title" id="final-title">GAME OVER</div>
+      <div class="final-winner-wrap">
+        <div class="star-big">★</div>
+        <div class="final-winner-name" id="final-winner-name">DAN WINS!</div>
+      </div>
+      <div class="result-score-wrap">
+        <div class="result-player-block" id="final-p1-block">
+          <div class="result-pname cyan" id="final-p1-name">DAN</div>
+          <div class="result-pdist" id="final-p1-dist">—</div>
+        </div>
+        <div class="result-vs">VS</div>
+        <div class="result-player-block" id="final-p2-block">
+          <div class="result-pname pink" id="final-p2-name">MAN</div>
+          <div class="result-pdist" id="final-p2-dist">—</div>
+        </div>
+      </div>
+      <div class="final-btns">
+        <button class="start-btn" id="play-again-btn">PLAY AGAIN</button>
+        <button class="outline-btn" id="new-game-btn">NEW GAME</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="shooting-star.js"></script>
+</body>
+</html>
